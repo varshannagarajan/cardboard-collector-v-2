@@ -1,0 +1,8 @@
+{
+  "name": "CardboardCollectorV2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "bd3108ff"
+}
