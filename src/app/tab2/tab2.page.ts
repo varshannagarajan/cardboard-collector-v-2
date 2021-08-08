@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Card } from '../card';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  name: string;
+  constructor(private cs: CardsService) { }
 
+  search() {
+    this.cs.getCardsByName(this.name)
+  }
 }
