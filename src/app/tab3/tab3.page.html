@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      My Collection
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,52 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">My Collection</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list *ngIf="this.cardCollection">
+    <ion-card *ngFor="let card of this.cardCollection">
+      <ion-card-header>
+        <ion-card-title>
+          {{card.name}}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{card.type}}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <img src="{{card.imageUrl}}" />
+            </ion-col>
+            <ion-col size="6">
+              <ion-list>
+                <ion-item>
+                  Mana Cost - {{card.manaCost}}
+                </ion-item>
+                <ion-item>
+                  Identity - {{card.colorIdentity}}
+                </ion-item>
+                <ion-item>
+                  Set - {{card.set}}
+                </ion-item>
+                <ion-item>
+                  Artist - {{card.artist}}
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="removeCard(card)">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

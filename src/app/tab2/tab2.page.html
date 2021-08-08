@@ -21,7 +21,9 @@
         </ion-item>
       </ion-col>
       <ion-col>
-        <ion-button (click)="search()">Search</ion-button>
+        <ion-button (click)="search()">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -57,6 +59,13 @@
                   Artist - {{card.artist}}
                 </ion-item>
               </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="addCardToCollection(card)">
+                <ion-icon name="add-outline"></ion-icon>
+              </ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

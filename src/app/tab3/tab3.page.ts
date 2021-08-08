@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Card } from '../card';
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  cardCollection: Card[];
+  constructor(private ss: StorageService) { }
 
+  ionViewWillEnter() {
+    this.cardCollection = this.ss.getCards()
+  }
+
+  removeCard(card: Card) {
+    this.ss.deleteCard(card)
+    this.cardCollection = this.ss.getCards()
+  }
 }
